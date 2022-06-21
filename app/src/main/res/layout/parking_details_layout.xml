@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ParkingDetailsFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="0dp"
+        android:layout_height="275dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/parking" />
+
+    <TextView
+        android:id="@+id/nameDetailsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="TextContrastCheck" />
+
+    <TextView
+        android:id="@+id/nameDetailsTextView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/locationDetailsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/nameDetailsTextView2"
+        app:layout_constraintTop_toBottomOf="@+id/nameDetailsTextView2" />
+
+    <TextView
+        android:id="@+id/stateDetailsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/locationDetailsTextView"
+        app:layout_constraintTop_toBottomOf="@+id/locationDetailsTextView" />
+
+    <TextView
+        android:id="@+id/SeparatorDetails1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" - "
+        app:layout_constraintStart_toEndOf="@+id/stateDetailsTextView"
+        app:layout_constraintTop_toBottomOf="@+id/locationDetailsTextView" />
+
+    <TextView
+        android:id="@+id/occupationDetailsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/SeparatorDetails1"
+        app:layout_constraintTop_toTopOf="@+id/SeparatorDetails1" />
+
+    <TextView
+        android:id="@+id/timeDetailsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/occupationDetailsTextView" />
+
+    <TextView
+        android:id="@+id/SeparatorDetails2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=" - "
+        app:layout_constraintEnd_toStartOf="@+id/timeDetailsTextView"
+        app:layout_constraintTop_toTopOf="@+id/timeDetailsTextView" />
+
+    <TextView
+        android:id="@+id/distanceDetailsTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/SeparatorDetails2"
+        app:layout_constraintTop_toTopOf="@+id/SeparatorDetails2" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="13dp"
+        android:layout_height="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/distanceDetailsTextView"
+        app:layout_constraintEnd_toStartOf="@+id/distanceDetailsTextView"
+        app:layout_constraintTop_toTopOf="@+id/distanceDetailsTextView"
+        app:srcCompat="@drawable/car" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="12dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.604"
+        android:text="Itinéraire" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="16dp"
+        android:text="Horaires"
+        app:layout_constraintBottom_toTopOf="@+id/opensRecyclerView"
+        app:layout_constraintStart_toStartOf="@+id/stateDetailsTextView"
+        app:layout_constraintTop_toBottomOf="@+id/open_bottom_sheet" />
+
+    <androidx.recyclerview.widget.RecyclerView
+
+        android:id="@+id/opensRecyclerView"
+        android:layout_width="0dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/timeDetailsTextView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/open_bottom_sheet"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Reserver"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.458"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <Button
+        android:id="@+id/open_comments"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Open comments"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.47"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/open_bottom_sheet" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

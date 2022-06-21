@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "757938849657",
+    "project_id": "tdmobile-e58cb",
+    "storage_bucket": "tdmobile-e58cb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:757938849657:android:8f9f3b9f83343f73bf11a8",
+        "android_client_info": {
+          "package_name": "com.example.tdmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "757938849657-6kdlum1vab1s0vilba8vvutdt2o22rjf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.tdmobile",
+            "certificate_hash": "43361a5cca4c291bfd4cea8a1a547a247504b227"
+          }
+        },
+        {
+          "client_id": "757938849657-2tkdop73k4ql3l30anajlmr4gcfrd64t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBtbsIbLCvGgRgqzBC1EN-zSaZDgSLGBN8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "757938849657-2tkdop73k4ql3l30anajlmr4gcfrd64t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

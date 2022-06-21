@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/reservationListFragment">
+
+    <fragment
+        android:id="@+id/parkingListFragment"
+        android:name="com.example.tdmobile.ParkingListFragment"
+        android:label="parkinglist_fragment"
+        tools:layout="@layout/parkinglist_fragment" >
+        <action
+            android:id="@+id/action_parkingListFragment_to_parkingDetailsFragment"
+            app:destination="@id/parkingDetailsFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:launchSingleTop="true"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/parkingListFragment">
+            <argument android:name="position" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/reservationListFragment"
+        android:name="com.example.tdmobile.ReservationList"
+        android:label="reservation_list"
+        tools:layout="@layout/reservation_list_layout"
+
+        >
+
+        <action
+            android:id="@+id/action_reservationListFragment_to_parkingDetailsFragment"
+            app:destination="@id/parkingDetailsFragment" />
+        <action
+            android:id="@+id/action_reservationListFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/parkingDetailsFragment"
+        android:name="com.example.tdmobile.ParkingDetailsFragment"
+        android:label="parking_details_layout"
+        tools:layout="@layout/parking_details_layout" >
+        <argument android:name="parking"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_parkingDetailsFragment_to_fragmentReserverFragment"
+            app:destination="@id/fragmentReserverFragment"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right"
+            app:launchSingleTop="true"
+            app:popExitAnim="@android:anim/slide_out_right"
+            app:popUpTo="@id/parkingListFragment"
+            />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/fragmentReserverFragment"
+        android:name="com.example.tdmobile.reserver_fragment"
+        android:label="reserver_fragment"
+        tools:layout="@layout/fragment_reserver_fragment"
+        >
+        <argument android:name="parking"
+            app:argType="integer" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.tdmobile.SignInFragment"
+        android:label="sign_in_fragment"
+        tools:layout="@layout/activity_login"
+        >
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_accountDetail"
+            app:destination="@id/accountDetail" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.tdmobile.SignUpFragment"
+        android:label="sign_up_fragment"
+        tools:layout="@layout/activity_sign_up"
+        >
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+        <action
+            android:id="@+id/action_signUpFragment_to_accountDetail"
+            app:destination="@id/accountDetail" />
+    </fragment>
+    <fragment
+        android:id="@+id/accountDetail"
+        android:name="com.example.tdmobile.AccountDetailFragment"
+        android:label="account_detail_fragment"
+        tools:layout="@layout/account_detail_layout"
+        >
+        <action
+            android:id="@+id/action_accountDetail_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+</navigation>

@@ -1,24 +1,34 @@
 package com.example.tdmobile
 
+import android.content.ContentValues.TAG
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tdmobile.databinding.ParkinglistFragmentBinding
-import com.example.tdmobile.retrofit.Endpoint
+import com.example.tdmobile.factory.MyViewModelFactory
+import com.example.tdmobile.repository.MainRepository
+import com.example.tdmobile.retrofit.RetrofitService.Companion.retrofitService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import kotlin.time.Duration.Companion.minutes
+import com.example.tdmobile.RecyclerAdapter
+import com.example.tdmobile.retrofit.RetrofitService
 
 class ParkingListFragment: Fragment() {
     private var _binding: ParkinglistFragmentBinding? = null
+
+    private val retrofitService = RetrofitService.getInstance()
+    private lateinit var adapter : RecyclerAdapter ;
+    private lateinit var layoutManager : LinearLayoutManager;
     // This property is only valid between onCreateView and
 // onDestroyView.
     private val binding get() = _binding!!
@@ -33,43 +43,36 @@ class ParkingListFragment: Fragment() {
     ): View {
         container?.clearDisappearingChildren()
         _binding = ParkinglistFragmentBinding.inflate(layoutInflater)
+
         return binding.root
     }
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        val vm = ViewModelProvider(this).get(ParkingViewModel::class.java)
-        val layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
-        binding.recyclerView.layoutManager = layoutManager
 
-        CoroutineScope(Dispatchers.IO).launch {
-            val response = Endpoint.createInstance().getAllParkings()
-            Log.d("response", response.toString());
-            withContext(Dispatchers.Main) {
-                if (response.isSuccessful && response.body() != null) {
-                    val data = response.body()!!
-                    val rows = data.result.rows
-                    Log.d("logged",rows.toString())
-                    val parkingList = mutableListOf<Parking>()
-                    val opens = mutableListOf<Triple<String,String,String>>()
-                    for(row in rows){
-                        opens.add(Triple("Dimanche",  row.schedule[0].ouverture,row.schedule[0].frmeture))
-                        opens.add(Triple("Dimanche",  row.schedule[1].ouverture,row.schedule[1].frmeture))
-                        parkingList.add(Parking(row.name,"","Fermé",8.86, row.nb_available_places,14.minutes, ParkingDetails(Pair(row.latitude,row.longitude),row.price, opens)))
-                        opens.clear()
+        val viewModel = ViewModelProvider((activity as MainActivity), MyViewModelFactory(MainRepository(retrofitService!!))).get(ParkingViewModel::class.java)
 
-                    }
-                    val adapter = RecyclerAdapter(requireContext(),parkingList)
-                    binding.recyclerView.adapter = adapter
-                }
-            }
-        }
+        viewModel.parkingList.observe(viewLifecycleOwner, Observer {
+
+            Log.d(TAG, "onCreate: $it")
+            layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
+            binding.recyclerView.layoutManager = layoutManager
+            adapter = RecyclerAdapter(requireContext());
+            adapter.setParkingList(it)
+            binding.recyclerView.adapter = adapter
+
+
+        })
+        viewModel.errorMessage.observe(viewLifecycleOwner, Observer {
 
 
 
-
-
+        })
+        viewModel.getAllParkings()
     }
+
+
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null

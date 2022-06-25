@@ -6,30 +6,23 @@ import androidx.room.ForeignKey
 import androidx.room.PrimaryKey
 
 
-@Entity(tableName = "reservations" ,
-    foreignKeys = [
-        ForeignKey(
-            entity=ParkingEntity::class,
-            parentColumns=["parking_id"],childColumns = ["parking_reservation"],
-            onUpdate = ForeignKey.CASCADE,
-            onDelete = ForeignKey.CASCADE
-        )
-    ]
+@Entity(tableName = "reservations"
 )
 data class ReservationEntity (
     @PrimaryKey
     val reservation_id : Int,
-    val user_reservation : Int ,
+    val user_reservation : Int? ,
     @ColumnInfo(name = "parking_reservation")
-    val parking_reservation : Int ,
+    val parking_reservation : Int? ,
     @ColumnInfo(name = "adresse")
-    val adresse : String ,
+    val adresse : String? ,
     @ColumnInfo(name = "start_time")
-    val start_time : String ,
+    val start_time : String? ,
     @ColumnInfo(name = "end_time")
-    val end_time : String,
+    val end_time : String?,
     @ColumnInfo(name = "prix")
-    val prix : Int,
-    val is_over: Boolean
+    val prix : Int?,
+    @ColumnInfo(name = "is_over")
+    val is_over: Boolean?
 
 )

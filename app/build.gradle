@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'kotlin-android'
 }
 apply plugin: 'com.android.application'
 apply plugin: 'com.google.gms.google-services'
@@ -117,6 +119,21 @@ dependencies {
 
     // GLide
     implementation 'com.github.bumptech.glide:glide:4.13.0'
+
+
+
+    //caching des requetes get
+    implementation 'com.google.code.gson:gson:2.8.5'
+
+    implementation("com.squareup.okhttp3:logging-interceptor:4.10.0")
+
+
+    //sqlite
+    def room_version = "2.3.0"
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    testImplementation "androidx.room:room-testing:$room_version"
 
 
 

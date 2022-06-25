@@ -12,7 +12,10 @@ interface ReservationDao:BaseDao<ReservationEntity> {
     @Query("SELECT * FROM RESERVATIONS")
     fun getAllReservations():List<ReservationEntity>
 
-    @Query("SELECT * FROM RESERVATIONS WHERE  :targetDate LIKE start_time")
-    fun getTodayReservation(targetDate: String): List<ReservationEntity>
+//    @Query("SELECT * FROM RESERVATIONS WHERE  :targetDate LIKE start_time")
+//    fun getTodayReservation(targetDate: String): List<ReservationEntity>
+
+    @Query("DELETE  FROM RESERVATIONS")
+    fun truncateReservations()
 
 }

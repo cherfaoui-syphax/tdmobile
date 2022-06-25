@@ -1,20 +1,26 @@
 package com.example.tdmobile
 
+import android.content.ContentValues
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TimePicker
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.tdmobile.databinding.ParkingDetailsLayoutBinding
+import com.example.tdmobile.factory.MyViewModelFactory
+import com.example.tdmobile.repository.MainRepository
+import com.example.tdmobile.retrofit.RetrofitService.Companion.retrofitService
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import kotlin.time.ExperimentalTime
 
@@ -32,9 +38,19 @@ class ParkingDetailsFragment: Fragment() {
     ): View {
 
         _binding= ParkingDetailsLayoutBinding.inflate(layoutInflater)
-        val vm = ViewModelProvider(this).get(ParkingViewModel::class.java)
+
+        val viewModel = ViewModelProvider((activity as MainActivity), MyViewModelFactory(MainRepository(retrofitService!!))).get(ParkingViewModel::class.java)
         val layoutManager = LinearLayoutManager(context, RecyclerView.VERTICAL,false)
-        var parking = vm.parkingList[args.parking]
+
+
+
+
+        val parking = viewModel.parkingList.value!!.get(args.parking)
+        println(parking.toString());
+
+
+
+
         binding.locationDetailsTextView.text= parking.location
         binding.distanceDetailsTextView.text= String.format("%.1f km", parking.distance)
         binding.timeDetailsTextView.text=parking.time.toString()
@@ -43,6 +59,9 @@ class ParkingDetailsFragment: Fragment() {
         binding.occupationDetailsTextView.text= String.format("%d %%",parking.occupation)
         binding.stateDetailsTextView.text=parking.state
         binding.opensRecyclerView.layoutManager = layoutManager
+
+        var ratingBar = binding.ratingBar2;
+
 
         val view = layoutInflater.inflate(R.layout.fragment_reserver_fragment, null)
 
@@ -93,6 +112,7 @@ class ParkingDetailsFragment: Fragment() {
         binding.opensRecyclerView.adapter = adapter
         NavHostFragment
         return binding.root
+
     }
     override fun onDestroyView() {
         super.onDestroyView()

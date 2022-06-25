@@ -16,8 +16,15 @@ import androidx.navigation.fragment.findNavController
 
 class ReservationAdapter(
     val context: Context,
-    var data: List<ReservationEntity>,
 ): RecyclerView.Adapter<ReservationAdapter.ViewHolder>() {
+
+    var data = mutableListOf<ReservationEntity>()
+    fun setReservayionList(reservations: List<ReservationEntity>) {
+        this.data = reservations.toMutableList()
+        notifyDataSetChanged()
+    }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(ReservationLayoutBinding.inflate(LayoutInflater.from(context), parent, false))
     }

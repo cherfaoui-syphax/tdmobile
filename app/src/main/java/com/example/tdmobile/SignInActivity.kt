@@ -6,9 +6,10 @@ import android.util.Log
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.google.android.material.snackbar.Snackbar
 import com.example.tdmobile.databinding.ActivitySignInBinding
-import com.example.tdmobile.retrofit.Endpoint
+import com.example.tdmobile.retrofit.RetrofitService
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -19,7 +20,7 @@ class SignInActivity : AppCompatActivity() {
     private var mBtnSignIn: TextView? = null
     private var mEtEmail: EditText? = null
     private var mEtPassword: EditText? = null
-    private var root: RelativeLayout? = null
+    private var root: ConstraintLayout? = null
     private var mRlSignUp: Button? = null
     private var mRlFadingLayout: RelativeLayout? = null
     private var mProgressBar: ProgressBar? = null
@@ -72,7 +73,7 @@ class SignInActivity : AppCompatActivity() {
                 }
             }*/
             CoroutineScope(Dispatchers.IO).launch {
-                val response = Endpoint.createInstance().signIn(map)
+                val response = RetrofitService.getInstance().signIn(map)
                 withContext(Dispatchers.Main) {
                     mProgressBar!!.setVisibility(View.INVISIBLE)
                     mRlFadingLayout!!.setVisibility(View.INVISIBLE)

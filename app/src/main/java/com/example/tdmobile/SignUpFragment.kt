@@ -14,7 +14,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.tdmobile.MainActivity
 import com.example.tdmobile.SignInActivity
 import com.example.tdmobile.databinding.ActivitySignUpBinding
-import com.example.tdmobile.retrofit.Endpoint
+import com.example.tdmobile.retrofit.RetrofitService
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.CoroutineScope
@@ -119,7 +119,7 @@ class SignUpFragment : Fragment() {
 
                          */
                     CoroutineScope(Dispatchers.IO).launch {
-                        val response = Endpoint.createInstance().signUp(firstname,lastname,password,email,num)
+                        val response = RetrofitService.getInstance().signUp(firstname,lastname,password,email,num)
                         withContext(Dispatchers.Main) {
                             mProgressBar!!.setVisibility(View.INVISIBLE)
                             mRlFadingLayout!!.setVisibility(View.INVISIBLE)

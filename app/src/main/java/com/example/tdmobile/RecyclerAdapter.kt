@@ -15,7 +15,15 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.tdmobile.databinding.ParkingLayoutBinding
 import com.example.tdmobile.ParkingListFragmentDirections
 
-class RecyclerAdapter(val context: Context,var data:List<Parking>):RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+class RecyclerAdapter(val context: Context):RecyclerView.Adapter<RecyclerAdapter.ViewHolder>() {
+
+    var data = mutableListOf<Parking>()
+    fun setParkingList(parkings: List<Parking>) {
+        this.data = parkings.toMutableList()
+        notifyDataSetChanged()
+    }
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(ParkingLayoutBinding.inflate(LayoutInflater.from(context), parent, false))
     }
@@ -37,5 +45,7 @@ class RecyclerAdapter(val context: Context,var data:List<Parking>):RecyclerView.
     }
 
     override fun getItemCount() = data.size
+
+
     class ViewHolder(val binding: ParkingLayoutBinding): RecyclerView.ViewHolder(binding.root)
 }

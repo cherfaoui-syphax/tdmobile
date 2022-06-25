@@ -23,7 +23,6 @@ class CommentRecyclerAdapter(val context: Context, var data:List<commentEntity>)
         holder.binding.apply {
             userName.text = data[position].userName
             comment.text = data[position].comment_text
-            ratingBar.rating = data[position].rating.toFloat()
         }
     }
 }

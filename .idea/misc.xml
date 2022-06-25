@@ -9,6 +9,7 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.124" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.124" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/drawable/ic_twitter.xml" value="0.245" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/drawable/path.xml" value="0.2275" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/drawable/side_nav_bar.xml" value="0.124" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout-w1240dp/activity_login2.xml" value="0.17421875" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout-w1240dp/activity_sign_up.xml" value="0.264" />
@@ -19,12 +20,12 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/activity_2.xml" value="0.264" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/activity_login.xml" value="0.22842105263157894" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/activity_login2.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/activity_main.xml" value="0.2" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/activity_parking.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/activity_profile.xml" value="0.2809587217043941" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/activity_qrcode.xml" value="0.1" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/activity_second.xml" value="0.2511904761904762" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/activity_sign_in.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/activity_sign_in.xml" value="0.2" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/activity_sign_up.xml" value="0.264" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/activity_signup.xml" value="0.264" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/app_bar_2.xml" value="0.11302083333333333" />
@@ -37,6 +38,7 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/fragment_gallery.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/fragment_home.xml" value="0.11302083333333333" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/fragment_main.xml" value="0.11302083333333333" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/fragment_reservation_detail.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/fragment_reserver_fragment.xml" value="0.19573283858998144" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/fragment_second.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/fragment_slideshow.xml" value="0.11302083333333333" />
@@ -44,7 +46,7 @@
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/nav_header_2.xml" value="0.136" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/opens_layout.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/parking_details_layout.xml" value="0.264" />
-        <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/parking_layout.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/parking_layout.xml" value="0.4368421052631579" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/parkinglist_fragment.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/progress_view.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/hp/AndroidStudioProjects/TDMobile/app/src/main/res/layout/reservation_layout.xml" value="0.72" />
